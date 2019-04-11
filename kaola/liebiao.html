@@ -234,92 +234,31 @@
         </div>
     </div>
 
-    <div id="banner1">
-        <div class="imgbox">
-            <a href=""><img src="https://haitao.nos.netease.com/1948c15c-c9d6-4149-9dd5-a5945ea2c723T1901220956_1920_400.jpg?imageView&amp;
-                        thumbnail=2400x0&amp;quality=95&amp;type=webp" class=" u-loaded">img
-                src="https://img.zcool.cn/community/01ba595b719f2ba801215c8f310c71.jpg@1380w"/></a>
-            <a href=""><img src="https://haitao.nos.netease.com/a1153d02-8303-4d68-8fad-fd92d86f89ddT1901220955_1920_400.jpg?imageView&amp;
-                        thumbnail=2400x0&amp;quality=95&amp;type=webp" class=" u-loaded"></a>
-            <a href=""><img src="https://haitao.nos.netease.com/8d81c463-7d69-45d9-9de6-b4ef0b60865cT1903142006_1920_400.jpg?imageView&amp;
-                        thumbnail=2400x0&amp;quality=95&amp;type=webp" class=" u-loaded"></a>
-            <a href=""><img src="https://haitao.nos.netease.com/d8696b40-1d19-4758-bdb4-9d4d61e9db71T1901181622_1920_400.jpg?imageView&amp;
-                        thumbnail=2400x0&amp;quality=95&amp;type=webp" class=" u-loaded"></a>
-        </div>
-        <div class="btns">
-            <input type="button" name="" id="left" value="<" />
-            <input type="button" name="" id="right" value=">" />
-        </div>
     </div>
 
     <div id="main">
         <div class="margin">
-            <div class="qu shop1">
-                <div class="qu-t">
-                    <p>新人专享区</p>
-                    <ul>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                    </ul>
-                </div>
-                <div class="qu-b">
-                    <p>不限新老区</p>
-                    <ul>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                        <li><a href="#"><img src="img/t2.png" /></a></li>
-                    </ul>
-                </div>
-            </div>
+            
 
-            <div class="xin shop2">
-                <a class="t3" href="#"><img src="img/t3.png" /></a>
-                <ul>
-                    <li><a href="#"><img src="img/t4.png" alt=""></a></li>
-                    <li><a href="#"><img src="img/t4.png" alt=""></a></li>
-                    <li><a href="#"><img src="img/t4.png" alt=""></a></li>
-                    <li>
-                        <div class="hot-t"></div><a href="#"><img src="img/t4.png" alt=""></a>
-                    </li>
-
-                </ul>
-            </div>
 
             <div class="hot shop3">
-                <div class="hot-t">
-                    口碑爆款
-                </div>
+               
                 <div class="hot-b">
                     <ul id="cont" class="cont">
-
+                       
 
                     </ul>
                 </div>
             </div>
-
+            
             <div class="hot shop4">
-                <div class="hot-t">
-                    美容彩妆
-                </div>
-                <div class="hot-b">
-                    <ul id="cont" class="cont">
-
-
-                    </ul>
+                
+                
                 </div>
             </div>
             <div class="hot shop5">
-                <div class="hot-t">
-                    大牌满减
-                </div>
-                <div class="hot-b">
-                    <ul id="cont" class="cont">
-
-                    </ul>
-                </div>
+               
+               
             </div>
             <div class="bottom">
                 <a href="#"><img src="img/t5.png" alt=""></a>
@@ -409,13 +348,13 @@
 
     class List {
         constructor(options) {
-            //				1.解析参数
+           
             this.cont = options.cont;
             this.url = options.url;
-            //				2.请求数据
+            
             this.load();
 
-            //				5.绑定事件
+           
             this.addEvent();
         }
         load() {
@@ -423,99 +362,92 @@
             ajax({
                 url: this.url,
                 success: function (res) {
-                    //						3.请求成功之后解析数据,并渲染页面
+                   
                     that.res = JSON.parse(res)
                     that.display()
                 }
             })
         }
         display() {
-            //				4.遍历数据,拼接结构,渲染页面   this.res.length
+            
             var str = "";
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i <this.res.length; i++) {
                 str += `
-                <li index="${this.res[i].goodsId}">
-                            <a href="xiangqing.html"><img src="${this.res[i].p1}"/></a>
+                           <li index="${this.res[i].goodsId}">
+                            <a href="#"><img src="${this.res[i].p1}"/></a>
                             <p>${this.res[i].p2}</p>
                             <h5>SHISEIDO 资生堂 安耐晒小金瓶防晒露 SPF50+　PA++++ 60毫升 新版 防水防</h5>
                             <h6>${this.res[i].p3}</h6 >
                             <div class="hot-b-b">
                                 <span class="price">${this.res[i].p4}</span>
                                  <span class="noprice"><del style="text-decoration: line-through">${this.res[i].p5}</del></span>
-                                 <a href="xiangqing.html"><span class="btn-buy">立即购买</span></a>
+                                 <a href="xiangqing.html"><span class="btn-buy" >立即购买</span></a>
                             </div>
-                           </li > `
-                           ;
-            }
-            // this.cont[0].html(str)
-            // this.cont[1].html(str)
-            // this.cont[2].html(str)
-            this.cont[0].innerHTML = str;
-            this.cont[1].innerHTML = str;
-            this.cont[2].innerHTML = str;
-
-        }
-        addEvent() {
-            // var that = this;
-            // console.log(this.cont);
-            // this.cont.onclick = function(){
-            //     console.log(1);
-            // } 
-            this.cont.addEventListener("click", function (eve) {
-                if (eve.target.nodeName == "EM") {
-                    //						6.被点击时,获取货号,存cookie
-                    that.id = eve.target.parentNode.getAttribute("index");
-                    that.setCookie()
+                           </li > `;          
+                    
                 }
-            })
-        }
-        setCookie() {
-            //				因为要使用一条cookie存商品,所以数据选择数组里面放对象[{},{}]
-            this.goods = getCookie("goods");
-            //				情况1:第一次添加
-            if (this.goods == "") {
-                this.goods = [{
-                    id: this.id,
-                    num: 1
-                }];
-            } else {
-                //					情况2:不是第一次添加
-                this.goods = JSON.parse(this.goods);
-                //					新情况1：这次点击的是老数据
-                var onoff = true;
-                this.goods.forEach((v) => {
-                    if (v.id == this.id) {
-                        v.num++
-                        onoff = false;
-                    }
-                })
+                
+                this.cont.innerHTML = str;
+				
+                
+			}
+			addEvent(){
+                
+ 				this.cont.addEventListener("click",function(eve){
+ 					if(eve.target.nodeName == "EM"){
+ 
+ 						that.id = eve.target.parentNode.getAttribute("index");
+ 						that.setCookie()
+ 					}
+ 				})
+			}
+			setCookie(){
 
-                //					新情况2：这次点击的是新数据
-                if (onoff) {
-                    this.goods.push({
-                        id: this.id,
-                        num: 1
-                    })
-                }
-            }
-            //				所有关于数组的操作结束之后,将数组转成字符再设置到cookie中
-            setCookie("goods", JSON.stringify(this.goods))
-        }
-    }
+				this.goods = getCookie("goods");
 
-    new List({
-        // cont:document.getElementById("cont"),
-        cont: document.querySelectorAll(".cont"),
+				if(this.goods == ""){
+					this.goods = [{
+						id:this.id,
+						num:1
+					}];
+				}else{
 
-        // cont:$('.cont'),
-        url: "http://localhost/test1901/kaola/date/goods.json"
-    })
+					this.goods = JSON.parse(this.goods);
+
+					var onoff = true;
+					this.goods.forEach((v)=>{
+						if(v.id == this.id){
+							v.num++
+							onoff = false;
+						}
+					})
+					
+
+					if(onoff){
+						this.goods.push({
+							id:this.id,
+							num:1
+						})
+					}
+				}
+
+				setCookie("goods",JSON.stringify(this.goods))
+			}
+		}
+		
+		new List({
+             cont:document.getElementById("cont"),
+           // cont:document.querySelectorAll(".cont"),
+
+            // cont:$('.cont'),
+			url:"http://localhost/test1901/kaola/date/goods.json"
+		})
+    
+
+   
 
 
-
-
-
-
+    
 
 </script>
 
